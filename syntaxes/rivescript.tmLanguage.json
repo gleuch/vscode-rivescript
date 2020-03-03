@@ -1,0 +1,536 @@
+{
+  "name": "RiveScript",
+  "scopeName": "text.rivescript",
+  "fileTypes": [
+    "rive"
+  ],
+  "foldingStartMarker": "^\\s*>\\s+topic.*$",
+  "foldingStopMarker": "^\\s*<\\s+topic.*$",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#defines"
+    },
+    {
+      "include": "#labels"
+    },
+    {
+      "include": "#triggers"
+    },
+    {
+      "include": "#replies"
+    },
+    {
+      "include": "#conditions"
+    }
+  ],
+  "repository": {
+    "specialChars": {
+      "patterns": [
+        {
+          "match": "\\,|\\;|=|\\|",
+          "name": "keyword.control"
+        },
+        {
+          "match": "\\*",
+          "name": "support.constant"
+        }
+      ]
+    },
+    "binaryOperators": {
+      "patterns": [
+        {
+          "match": "\\s(eq|ne|!=|==|<>|<=|>=|<|>)\\s",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.comparison"
+            }
+          }
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "match": "//.*$",
+          "name": "comment.line.double-slash"
+        }
+      ]
+    },
+    "arrays": {
+      "patterns": [
+        {
+          "match": "@[A-Za-z0-9]*",
+          "captures": {
+            "0": {
+              "name": "variable.other"
+            }
+          },
+          "name": "meta.array"
+        }
+      ]
+    },
+    "tags": {
+      "patterns": [
+        {
+          "begin": "(<|\\{)(@)",
+          "end": ">|\\}",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "support.function"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "keyword.control"
+            }
+          },
+          "name": "meta.tag",
+          "contentName": "string.unquoted",
+          "patterns": [
+            {
+              "include": "#tags"
+            },
+            {
+              "include": "#specialChars"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        },
+        {
+          "begin": "(<|\\{)(topic)\\s*(?=\\=)",
+          "end": ">|\\}",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "support.function"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "keyword.control"
+            }
+          },
+          "name": "meta.tag",
+          "contentName": "support.class",
+          "patterns": [
+            {
+              "include": "#tags"
+            },
+            {
+              "include": "#specialChars"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        },
+        {
+          "begin": "(<)(call)(>)([A-Za-z0-9\\-]+)",
+          "end": "(</)(call)(>)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "support.function"
+            },
+            "3": {
+              "name": "keyword.control"
+            },
+            "4": {
+              "name": "support.function"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "support.function"
+            },
+            "3": {
+              "name": "keyword.control"
+            }
+          },
+          "name": "meta.tag",
+          "contentName": "string.unquoted",
+          "patterns": [
+            {
+              "include": "#tags"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        },
+        {
+          "begin": "(<|\\{)(/?[A-Za-z0-9]+)(\\s+[A-Za-z0-9]+)?",
+          "end": ">|\\}",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "support.function"
+            },
+            "3": {
+              "name": "variable.other"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "keyword.control"
+            }
+          },
+          "name": "meta.tag",
+          "contentName": "string.unquoted",
+          "patterns": [
+            {
+              "include": "#tags"
+            },
+            {
+              "include": "#specialChars"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        }
+      ]
+    },
+    "defines": {
+      "patterns": [
+        {
+          "begin": "^\\s*(\\!)\\s+(global|local)(\\s+[A-Za-z0-9\\-]+)?",
+          "while": "^\\s*(\\^)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.flow"
+            },
+            "2": {
+              "name": "storage.type"
+            },
+            "3": {
+              "name": "variable.language"
+            }
+          },
+          "whileCaptures": {
+            "1": {
+              "name": "keyword.control.flow"
+            }
+          },
+          "contentName": "constant.language",
+          "name": "meta.define",
+          "patterns": [
+            {
+              "include": "#comments"
+            },
+            {
+              "include": "#specialChars"
+            }
+          ]
+        },
+        {
+          "begin": "^\\s*(\\!)\\s+(var|array)(\\s+[A-Za-z0-9\\-]+)?",
+          "while": "^\\s*(\\^)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.flow"
+            },
+            "2": {
+              "name": "storage.type"
+            },
+            "3": {
+              "name": "variable.other"
+            }
+          },
+          "whileCaptures": {
+            "1": {
+              "name": "keyword.control.flow"
+            }
+          },
+          "contentName": "string.unquoted",
+          "name": "meta.define",
+          "patterns": [
+            {
+              "include": "#comments"
+            },
+            {
+              "include": "#specialChars"
+            }
+          ]
+        },
+        {
+          "begin": "^\\s*(\\!)\\s+(version|sub|person)(\\s+[^=]+(=))?",
+          "while": "^\\s*(\\^)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.flow"
+            },
+            "2": {
+              "name": "storage.type"
+            },
+            "3": {
+              "name": "string.unquoted"
+            },
+            "4": {
+              "name": "keyword.operator.assignment"
+            }
+          },
+          "whileCaptures": {
+            "1": {
+              "name": "keyword.control.flow"
+            }
+          },
+          "contentName": "string.unquoted",
+          "name": "meta.define",
+          "patterns": [
+            {
+              "include": "#comments"
+            },
+            {
+              "include": "#specialChars"
+            }
+          ]
+        }
+      ]
+    },
+    "labels": {
+      "patterns": [
+        {
+          "match": "^(\\s*[<>]\\s+begin)",
+          "captures": {
+            "1": {
+              "name": "support.constant"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comments"
+            }
+          ]
+        },
+        {
+          "begin": "^\\s*([<>]\\s+topic\\b)",
+          "end": "$",
+          "beginCaptures": {
+            "1": {
+              "name": "storage.type.class"
+            }
+          },
+          "contentName": "support.class",
+          "patterns": [
+            {
+              "match": "\\b(inherits|includes)\\b",
+              "captures": {
+                "1": {
+                  "name": "keyword.operator"
+                }
+              }
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        },
+        {
+          "match": "^\\s*([<>]\\s+object)(\\s+([A-Za-z0-9\\-]+)(\\s+([A-Za-z0-9\\-]+))?)?",
+          "captures": {
+            "1": {
+              "name": "storage.type.function"
+            },
+            "3": {
+              "name": "support.function"
+            },
+            "5": {
+              "name": "variable.parameter"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comments"
+            }
+          ]
+        }
+      ]
+    },
+    "triggers": {
+      "patterns": [
+        {
+          "begin": "^(\\s*[\\+%@]\\s)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.operator"
+            }
+          },
+          "contentName": "string.unquoted",
+          "end": "$",
+          "name": "meta.trigger",
+          "patterns": [{
+              "include": "#comments"
+            },
+            {
+              "include": "#alternates"
+            },
+            {
+              "include": "#arrays"
+            },
+            {
+              "include": "#optionals"
+            },
+            {
+              "include": "#specialChars"
+            }
+          ]
+        }
+      ]
+    },
+    "alternates": {
+      "patterns": [
+        {
+          "begin": "\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "keyword.control"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "keyword.control"
+            }
+          },
+          "name": "meta.alternates",
+          "contentName": "string.unquoted",
+          "patterns": [
+            {
+              "include": "#specialChars"
+            },
+            {
+              "include": "#arrays"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        }
+      ]
+    },
+    "optionals": {
+      "patterns": [
+        {
+          "begin": "\\[",
+          "end": "\\]",
+          "beginCaptures": {
+            "0": {
+              "name": "keyword.control"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "keyword.control"
+            }
+          },
+          "name": "meta.optionals",
+          "contentName": "string.unquoted",
+          "patterns": [
+            {
+              "include": "#specialChars"
+            },
+            {
+              "include": "#arrays"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        }
+      ]
+    },
+    "replies": {
+      "patterns": [
+        {
+          "begin": "^\\s*(\\-)",
+          "while": "^\\s*(\\^)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.flow"
+            }
+          },
+          "whileCaptures": {
+            "1": {
+              "name": "keyword.control.flow"
+            }
+          },
+          "name": "meta.reply",
+          "patterns": [
+            {
+              "include": "#replyContent"
+            }
+          ]
+        }
+      ]
+    },
+    "replyContent": {
+      "patterns": [
+        {
+          "include": "#tags"
+        },
+        {
+          "include": "#comments"
+        }
+      ]
+    },
+    "conditions": {
+      "patterns": [
+        {
+          "begin": "^\\s*(\\*)",
+          "end": "=>",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.flow"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "keyword.control.flow"
+            }
+          },
+          "name": "meta.condition",
+          "contentName": "string.unquoted",
+          "patterns": [
+            {
+              "include": "#tags"
+            },
+            {
+              "include": "#binaryOperators"
+            },
+            {
+              "include": "#comments"
+            }
+          ]
+        },
+        {
+          "begin": "(?<=\\=\\>)\\s",
+          "end": "$",
+          "name": "meta.condition",
+          "patterns": [
+            {
+              "include": "#replyContent"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

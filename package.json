@@ -1,0 +1,35 @@
+{
+    "name": "vscode-rivescript",
+    "displayName": "vscode-rivescript",
+    "description": "",
+    "version": "1.0.0",
+    "publisher": "kjleitz",
+	"author": {
+		"name": "Keegan Leitz"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/kjleitz/vscode-rivescript",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kjleitz/vscode-rivescript"
+	},
+    "engines": {
+        "vscode": "^1.42.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "rivescript",
+            "aliases": ["RiveScript", "rivescript"],
+            "extensions": [".rive"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "rivescript",
+            "scopeName": "text.rivescript",
+            "path": "./syntaxes/rivescript.tmLanguage.json"
+        }]
+    }
+}
