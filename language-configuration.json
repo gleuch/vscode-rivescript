@@ -20,7 +20,8 @@
         ["<", ">"],
         ["> begin\n", "< begin"],
         ["> topic ", "< topic"],
-        ["> object ", "< object"]
+        ["> object ", "< object"],
+        ["<call>", "</call>"]
     ],
     // symbols that can be used to surround a selection
     "surroundingPairs": [
