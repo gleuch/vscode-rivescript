@@ -2,7 +2,7 @@
     "name": "vscode-rivescript",
     "displayName": "RiveScript Language Support",
     "description": "",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "kjleitz",
 	"author": {
 		"name": "Keegan Leitz"
