@@ -28,7 +28,7 @@
         }],
         "grammars": [{
             "language": "rivescript",
-            "scopeName": "text.rivescript",
+            "scopeName": "source.rivescript",
             "path": "./syntaxes/rivescript.tmLanguage.json"
         }]
     }

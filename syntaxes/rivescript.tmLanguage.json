@@ -1,6 +1,6 @@
 {
   "name": "RiveScript",
-  "scopeName": "text.rivescript",
+  "scopeName": "source.rivescript",
   "fileTypes": [
     "rive"
   ],
@@ -31,11 +31,11 @@
       "patterns": [
         {
           "match": "\\,|\\;|=|\\|",
-          "name": "keyword.control"
+          "name": "keyword.control.rivescript"
         },
         {
           "match": "\\*",
-          "name": "support.constant"
+          "name": "support.constant.rivescript"
         }
       ]
     },
@@ -45,7 +45,7 @@
           "match": "\\s(eq|ne|!=|==|<>|<=|>=|<|>)\\s",
           "captures": {
             "1": {
-              "name": "keyword.operator.comparison"
+              "name": "keyword.operator.comparison.rivescript"
             }
           }
         }
@@ -55,7 +55,7 @@
       "patterns": [
         {
           "match": "//.*$",
-          "name": "comment.line.double-slash"
+          "name": "comment.line.double-slash.rivescript"
         }
       ]
     },
@@ -65,10 +65,10 @@
           "match": "@[A-Za-z0-9]*",
           "captures": {
             "0": {
-              "name": "variable.other"
+              "name": "variable.other.rivescript"
             }
           },
-          "name": "meta.array"
+          "name": "meta.array.rivescript"
         }
       ]
     },
@@ -79,18 +79,18 @@
           "end": ">|\\}",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             },
             "2": {
-              "name": "support.function"
+              "name": "support.function.rivescript"
             }
           },
           "endCaptures": {
             "0": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             }
           },
-          "name": "meta.tag",
+          "name": "meta.tag.rivescript",
           "contentName": "string.unquoted",
           "patterns": [
             {
@@ -109,18 +109,18 @@
           "end": ">|\\}",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             },
             "2": {
-              "name": "support.function"
+              "name": "support.function.rivescript"
             }
           },
           "endCaptures": {
             "0": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             }
           },
-          "name": "meta.tag",
+          "name": "meta.tag.rivescript",
           "contentName": "support.class",
           "patterns": [
             {
@@ -139,30 +139,30 @@
           "end": "(</)(call)(>)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             },
             "2": {
-              "name": "support.function"
+              "name": "support.function.rivescript"
             },
             "3": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             },
             "4": {
-              "name": "support.function"
+              "name": "support.function.rivescript"
             }
           },
           "endCaptures": {
             "1": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             },
             "2": {
-              "name": "support.function"
+              "name": "support.function.rivescript"
             },
             "3": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             }
           },
-          "name": "meta.tag",
+          "name": "meta.tag.rivescript",
           "contentName": "string.unquoted",
           "patterns": [
             {
@@ -178,21 +178,21 @@
           "end": ">|\\}",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             },
             "2": {
-              "name": "support.function"
+              "name": "support.function.rivescript"
             },
             "3": {
-              "name": "variable.other"
+              "name": "variable.other.rivescript"
             }
           },
           "endCaptures": {
             "0": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             }
           },
-          "name": "meta.tag",
+          "name": "meta.tag.rivescript",
           "contentName": "string.unquoted",
           "patterns": [
             {
@@ -215,22 +215,22 @@
           "while": "^\\s*(\\^)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             },
             "2": {
-              "name": "storage.type"
+              "name": "storage.type.rivescript"
             },
             "3": {
-              "name": "variable.language"
+              "name": "variable.language.rivescript"
             }
           },
           "whileCaptures": {
             "1": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             }
           },
           "contentName": "constant.language",
-          "name": "meta.define",
+          "name": "meta.define.rivescript",
           "patterns": [
             {
               "include": "#comments"
@@ -245,22 +245,22 @@
           "while": "^\\s*(\\^)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             },
             "2": {
-              "name": "storage.type"
+              "name": "storage.type.rivescript"
             },
             "3": {
-              "name": "variable.other"
+              "name": "variable.other.rivescript"
             }
           },
           "whileCaptures": {
             "1": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             }
           },
           "contentName": "string.unquoted",
-          "name": "meta.define",
+          "name": "meta.define.rivescript",
           "patterns": [
             {
               "include": "#comments"
@@ -275,25 +275,25 @@
           "while": "^\\s*(\\^)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             },
             "2": {
-              "name": "storage.type"
+              "name": "storage.type.rivescript"
             },
             "3": {
-              "name": "string.unquoted"
+              "name": "string.unquoted.rivescript"
             },
             "4": {
-              "name": "keyword.operator.assignment"
+              "name": "keyword.operator.assignment.rivescript"
             }
           },
           "whileCaptures": {
             "1": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             }
           },
           "contentName": "string.unquoted",
-          "name": "meta.define",
+          "name": "meta.define.rivescript",
           "patterns": [
             {
               "include": "#comments"
@@ -311,7 +311,7 @@
           "match": "^(\\s*[<>]\\s+begin)",
           "captures": {
             "1": {
-              "name": "support.constant"
+              "name": "support.constant.rivescript"
             }
           },
           "patterns": [
@@ -325,7 +325,7 @@
           "end": "$",
           "beginCaptures": {
             "1": {
-              "name": "storage.type.class"
+              "name": "storage.type.class.rivescript"
             }
           },
           "contentName": "support.class",
@@ -334,7 +334,7 @@
               "match": "\\b(inherits|includes)\\b",
               "captures": {
                 "1": {
-                  "name": "keyword.operator"
+                  "name": "keyword.operator.rivescript"
                 }
               }
             },
@@ -347,13 +347,13 @@
           "match": "^\\s*([<>]\\s+object)(\\s+([A-Za-z0-9\\-]+)(\\s+([A-Za-z0-9\\-]+))?)?",
           "captures": {
             "1": {
-              "name": "storage.type.function"
+              "name": "storage.type.function.rivescript"
             },
             "3": {
-              "name": "support.function"
+              "name": "support.function.rivescript"
             },
             "5": {
-              "name": "variable.parameter"
+              "name": "variable.parameter.rivescript"
             }
           },
           "patterns": [
@@ -370,12 +370,12 @@
           "begin": "^(\\s*[\\+%@]\\s)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.operator"
+              "name": "keyword.operator.rivescript"
             }
           },
           "contentName": "string.unquoted",
           "end": "$",
-          "name": "meta.trigger",
+          "name": "meta.trigger.rivescript",
           "patterns": [{
               "include": "#comments"
             },
@@ -402,15 +402,15 @@
           "end": "\\)",
           "beginCaptures": {
             "0": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             }
           },
           "endCaptures": {
             "0": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             }
           },
-          "name": "meta.alternates",
+          "name": "meta.alternates.rivescript",
           "contentName": "string.unquoted",
           "patterns": [
             {
@@ -433,15 +433,15 @@
           "end": "\\]",
           "beginCaptures": {
             "0": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             }
           },
           "endCaptures": {
             "0": {
-              "name": "keyword.control"
+              "name": "keyword.control.rivescript"
             }
           },
-          "name": "meta.optionals",
+          "name": "meta.optionals.rivescript",
           "contentName": "string.unquoted",
           "patterns": [
             {
@@ -464,15 +464,15 @@
           "while": "^\\s*(\\^)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             }
           },
           "whileCaptures": {
             "1": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             }
           },
-          "name": "meta.reply",
+          "name": "meta.reply.rivescript",
           "patterns": [
             {
               "include": "#replyContent"
@@ -498,15 +498,15 @@
           "end": "=>",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             }
           },
           "endCaptures": {
             "0": {
-              "name": "keyword.control.flow"
+              "name": "keyword.control.flow.rivescript"
             }
           },
-          "name": "meta.condition",
+          "name": "meta.condition.rivescript",
           "contentName": "string.unquoted",
           "patterns": [
             {
@@ -523,7 +523,7 @@
         {
           "begin": "(?<=\\=\\>)\\s",
           "end": "$",
-          "name": "meta.condition",
+          "name": "meta.condition.rivescript",
           "patterns": [
             {
               "include": "#replyContent"
