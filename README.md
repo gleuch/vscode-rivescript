@@ -1,6 +1,6 @@
 # VS Code - RiveScript Language Support
 
-Provides language support and syntax highlighting for [RiveScript](https://www.rivescript.com/) (`.rive`) files.
+Provides language support and syntax highlighting for [RiveScript](https://www.rivescript.com/) (`.rive`, `.rs`) files.
 
 ## Features
 

@@ -1,9 +1,7 @@
 {
   "name": "RiveScript",
   "scopeName": "source.rivescript",
-  "fileTypes": [
-    "rive"
-  ],
+  "fileTypes": ["rive", "rs"],
   "foldingStartMarker": "^\\s*>\\s+topic.*$",
   "foldingStopMarker": "^\\s*<\\s+topic.*$",
   "patterns": [
@@ -376,7 +374,8 @@
           "contentName": "string.unquoted.rivescript",
           "end": "$",
           "name": "meta.trigger.rivescript",
-          "patterns": [{
+          "patterns": [
+            {
               "include": "#comments"
             },
             {

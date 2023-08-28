@@ -1,35 +1,45 @@
 {
-    "name": "vscode-rivescript",
-    "displayName": "RiveScript Language Support",
-    "description": "",
-    "version": "1.0.1",
-    "publisher": "kjleitz",
-	"author": {
-		"name": "Keegan Leitz"
-	},
-	"license": "MIT",
-	"homepage": "https://github.com/kjleitz/vscode-rivescript",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/kjleitz/vscode-rivescript"
-	},
-    "engines": {
-        "vscode": "^1.42.0"
-    },
-    "categories": [
-        "Programming Languages"
+  "name": "vscode-rivescript",
+  "displayName": "RiveScript Language Support",
+  "description": "",
+  "version": "1.0.1",
+  "publisher": "kjleitz",
+  "author": {
+    "name": "Keegan Leitz"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/kjleitz/vscode-rivescript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kjleitz/vscode-rivescript"
+  },
+  "engines": {
+    "vscode": "^1.42.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "rivescript",
+        "aliases": [
+          "RiveScript",
+          "rivescript"
+        ],
+        "extensions": [
+          ".rive",
+          ".rs"
+        ],
+        "configuration": "./language-configuration.json"
+      }
     ],
-    "contributes": {
-        "languages": [{
-            "id": "rivescript",
-            "aliases": ["RiveScript", "rivescript"],
-            "extensions": [".rive"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "rivescript",
-            "scopeName": "source.rivescript",
-            "path": "./syntaxes/rivescript.tmLanguage.json"
-        }]
-    }
+    "grammars": [
+      {
+        "language": "rivescript",
+        "scopeName": "source.rivescript",
+        "path": "./syntaxes/rivescript.tmLanguage.json"
+      }
+    ]
+  }
 }
